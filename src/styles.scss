@@ -1,0 +1,120 @@
+html {
+  font: 100% -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Segoe UI',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
+  font-size: 10pt;
+
+  @media screen and  (min-width: 320px) {
+    font-size: 120%;
+  }
+}
+
+* {
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: 100vh;
+  width: 100vw;
+}
+
+div,
+section,
+header,
+footer,
+aside,
+article,
+nav,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li {
+  color: var(--site-color);
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+ul {
+  -webkit-padding-start: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+section.app {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr 2em;
+  height: 100%;
+  padding: 15px;
+
+  p {
+    padding: 0.3em 0;
+  }
+
+  li { 
+    list-style: none;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    & + * {
+      margin-top: 0.5em;
+    }
+  }
+
+  h1 {
+    font-size: 1.5rem;
+
+    &.loading {
+      color: red;
+    }
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  h4 {
+    text-decoration: underline;
+  }
+
+  .site__header {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    .site__header__burger {
+      height: 1.5rem;
+    }
+    h1 {
+      flex: 1;
+    }
+    .hamburger-icon {
+      cursor: pointer;
+      & + * {
+        margin-left: 0.3em;
+      }
+    }
+    .jsv-datetime {
+      align-self: flex-end;
+      margin-right: 0.5em;
+    }
+    nav {
+      flex: 0 0 100%;
+    }
+  }
+}
