@@ -1,0 +1,64 @@
+@import 'variables';
+
+html {
+  font: 100% -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Segoe UI',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background: var(--default-background);
+  color: var(--default-color);
+  box-sizing: border-box;
+  font-size: 10pt;
+
+  @media screen and  (min-width: 320px) {
+    font-size: 120%;
+  }
+}
+
+* {
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: var(--body-height);
+  width: var(--body-width);
+}
+
+input, button, a {
+  &:focus {
+    outline: var(--focus-outline) ;
+  }
+}
+
+div,
+section,
+header,
+footer,
+aside,
+article,
+nav,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li {
+  color: var(--site-color);
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+ul {
+  -webkit-padding-start: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+
+  li {
+    list-style: none;
+  }
+}

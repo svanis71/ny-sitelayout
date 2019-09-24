@@ -1,0 +1,12 @@
+:root {
+  --app-padding: 15px;
+  --body-width: calc(100vw - var(--app-padding));
+  --body-height: calc(100vh - var(--app-padding));
+  --default-background: #ffffff;
+  --default-color: #222222;
+  --focus-outline: dashed 3px #2378ab;
+  --font-h1-size: calc(1rem + 0.5rem);
+  --font-h2-size: calc(1rem + 0.2rem);
+  --font-h3-size: (1rem);
+  --font-h4-size: (1rem);
+}
