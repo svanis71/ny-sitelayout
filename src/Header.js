@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHamburger } from '@fortawesome/free-solid-svg-icons';
+import { faHamburger, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import Navigation from './Navigation';
 import Clock from './Clock';
 
@@ -14,7 +14,10 @@ const Header = ({ pages, loading }) => {
         className="header__burger-button"
         onClick={() => setMenuOpen(!menuOpen)}
       >
-        <FontAwesomeIcon icon={faHamburger} className="hamburger-icon" />
+        <FontAwesomeIcon
+          icon={menuOpen ? faWindowClose : faHamburger}
+          className="hamburger-icon"
+        />
       </button>
       <h1 className={loading ? 'loading' : ''}>Lorem h1</h1>
       <Clock />

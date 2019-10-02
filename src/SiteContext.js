@@ -1,15 +1,36 @@
-import React, { createContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
-let defaultState = {
-  loggedin: true,
-  login: () => {},
+class Auth {
+  constructor(history) {
+    this.history = history;
+  }
+  hasHistory() {
+    return this.history !== undefined;
+  }
+  name = () => 'RevolverHarry';
+}
+
+const SiteContext = createContext();
+
+const SiteContextProvider = ({ browserHistory, children }) => {
+  const [loggedin, setLoggedin] = useState(false);
+  const [auth] = useState(new Auth(browserHistory));
+
+  const value = {
+    auth,
+    loggedin,
+    login: () => {
+      setLoggedin(true);
+    },
+    logout: () => {
+      setLoggedin(false);
+    },
+  };
+  return <SiteContext.Provider value={value}>{children}</SiteContext.Provider>;
 };
-const SiteContext = createContext(defaultState);
-
-const SiteContextProvider = ({ children }) => (
-  <SiteContext.Provider value={defaultState}>{children}</SiteContext.Provider>
-);
 
 const SiteContextConsumer = SiteContext.Consumer;
 export default SiteContext;
 export { SiteContextProvider, SiteContextConsumer };
+
+export const UseSiteContext = () => useContext(SiteContext);

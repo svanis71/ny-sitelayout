@@ -70,6 +70,12 @@ section.app {
     }
     nav {
       flex: 0 0 100%;
+      border-top: solid medium var(--default-color);
+      margin-bottom: 0.5em;
+
+      li:last-child {
+        margin-top: 0.7em;
+      }
     }
   }
 }
