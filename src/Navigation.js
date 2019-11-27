@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import SiteContext from './SiteContext';
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import SiteContext from "./SiteContext";
 
 const LogInOut = ({ isLoggedIn, name }) => {
-  const targetUrl = isLoggedIn ? '/logout' : '/login';
-  const linkTitle = isLoggedIn ? `Logga ut ${name}` : 'Login';
+  const targetUrl = isLoggedIn ? "/logout" : "/login";
+  const linkTitle = isLoggedIn ? `Logga ut ${name}` : "Login";
   return (
     <li>
       <Link to={targetUrl}>{linkTitle}</Link>
@@ -16,7 +16,14 @@ const Navigation = ({ isOpen, pages }) => {
   const ctx = useContext(SiteContext);
   const { loggedin, auth } = ctx;
   return (
-    <nav className={isOpen ? '' : 'hidden'}>
+    <nav
+      className={isOpen ? "" : "hidden"}
+      aria-expanded={isOpen}
+      aria-labelledby="nav-title"
+    >
+      <h2 id="nav-title" className={`sr-only`}>
+        Site map
+      </h2>
       <ul className="nav__menu">
         {pages.map(page => (
           <li className="nav__menu-item">
